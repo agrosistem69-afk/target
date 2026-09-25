@@ -1,0 +1,695 @@
+<!doctype html>
+<html lang="en" id="html-root">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web Studio — Websites &amp; Social Ads for the U.S. Market</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff; --bg-alt:#f4f6fb; --ink:#0b1220; --ink-soft:#4b5566;
+    --primary:#1e4fd6; --primary-dark:#15379e; --accent:#ff7a3d;
+    --whatsapp:#25d366; --whatsapp-dark:#1ebe59; --border:#e3e7f0;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--ink);}
+  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;margin:0;}
+  a{color:var(--primary);text-decoration:none;}
+  a:hover{color:var(--primary-dark);}
+  ul{margin:0;padding:0;list-style:none;}
+  .container{max-width:1180px;margin:0 auto;padding:0 24px;}
+  .section{padding:88px 0;}
+  .section-alt{background:var(--bg-alt);}
+  .eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--primary);background:rgba(30,79,214,0.08);padding:6px 14px;border-radius:999px;margin-bottom:16px;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:15px;padding:14px 26px;border-radius:10px;border:2px solid transparent;cursor:pointer;transition:transform .12s ease, box-shadow .12s ease;white-space:nowrap;}
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--accent);color:#ffffff;box-shadow:0 8px 20px rgba(255,122,61,0.35);}
+  .btn-primary:hover{background:#f0621f;color:#fff;}
+  .btn-outline{background:transparent;border-color:var(--border);color:var(--ink);}
+  .btn-outline:hover{border-color:var(--primary);color:var(--primary);}
+  .btn-whatsapp{background:var(--whatsapp);color:#fff;box-shadow:0 8px 20px rgba(37,211,102,0.35);}
+  .btn-whatsapp:hover{background:var(--whatsapp-dark);color:#fff;}
+  .card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:32px;}
+  .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px;}
+  .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;}
+  .grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;}
+  .nav-link{font-size:15px;font-weight:500;color:var(--ink-soft);background:none;border:none;cursor:pointer;font-family:inherit;}
+  .nav-link:hover{color:var(--primary);}
+  .lang-btn{font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:700;padding:6px 10px;border-radius:8px;border:1px solid var(--border);background:#fff;color:var(--ink-soft);cursor:pointer;}
+  .lang-btn.active{background:var(--primary);border-color:var(--primary);color:#fff;}
+  .lang-btn.footer-lang{background:transparent;border-color:#33405f;color:#c9d2e8;}
+  .lang-btn.footer-lang.active{background:var(--primary);border-color:var(--primary);color:#fff;}
+  .hide-mobile{display:flex;}
+  .show-mobile{display:none;}
+  .star{color:#f5a623;font-size:16px;letter-spacing:2px;}
+  .plan-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:36px 28px;display:flex;flex-direction:column;gap:18px;position:relative;}
+  .plan-featured{border:2px solid var(--primary);box-shadow:0 20px 40px rgba(30,79,214,0.12);}
+  .badge-featured{position:absolute;top:-14px;left:28px;background:var(--primary);color:#fff;font-size:12px;font-weight:700;padding:5px 14px;border-radius:999px;}
+  .step-num{font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:700;color:rgba(30,79,214,0.18);}
+  .footer-link{color:#c9d2e8;font-size:14px;display:block;text-decoration:none;}
+  .footer-link:hover{color:#fff;}
+  .map-pin{width:52px;height:52px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(30,79,214,0.4);}
+  input,textarea{font-family:'IBM Plex Sans',sans-serif;}
+  @media (max-width: 860px){
+    .grid-2{grid-template-columns:1fr;}
+    .grid-3{grid-template-columns:1fr;}
+    .grid-4{grid-template-columns:repeat(2,minmax(0,1fr));}
+    .hide-mobile{display:none !important;}
+    .show-mobile{display:flex !important;}
+    .section{padding:56px 0;}
+    .hero-title{font-size:36px !important;}
+    .section-title{font-size:28px !important;}
+    .header-row{height:60px !important;}
+    .top-spacer{height:60px !important;}
+  }
+</style>
+</head>
+<body>
+
+<div style="width:100%;min-height:100vh;background:var(--bg);position:relative;">
+
+  <!-- Sticky header -->
+  <header style="position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);">
+    <div class="container header-row" style="display:flex;align-items:center;justify-content:space-between;height:76px;">
+      <a href="#top" style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:var(--ink);" data-i18n="brand">[Your Studio Name]</a>
+
+      <nav class="hide-mobile" style="align-items:center;gap:32px;">
+        <a class="nav-link" href="#services" data-i18n="nav.services">Services</a>
+        <a class="nav-link" href="#process" data-i18n="nav.process">Process</a>
+        <a class="nav-link" href="#reviews" data-i18n="nav.reviews">Reviews</a>
+        <a class="nav-link" href="#pricing" data-i18n="nav.pricing">Pricing</a>
+        <a class="nav-link" href="#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="hide-mobile" style="align-items:center;gap:18px;">
+        <div id="lang-switch-desktop" class="lang-row" style="display:flex;gap:6px;"></div>
+        <a href="#pricing" class="btn btn-primary" style="padding:11px 20px;font-size:14px;" data-i18n="ctaPrimary">Get a Free Quote</a>
+      </div>
+
+      <button class="show-mobile" id="mobile-toggle" aria-label="Menu" style="align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid var(--border);background:#fff;position:relative;flex-shrink:0;">
+        <svg id="icon-burger" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg id="icon-close" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round" style="display:none;position:absolute;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <div class="show-mobile" id="mobile-menu" style="display:none;flex-direction:column;padding:4px 24px 16px;border-top:1px solid var(--border);background:#fff;max-height:calc(100vh - 60px);overflow-y:auto;">
+      <a class="nav-link" style="padding:9px 0;font-size:15px;" href="#services" data-i18n="nav.services">Services</a>
+      <a class="nav-link" style="padding:9px 0;font-size:15px;" href="#process" data-i18n="nav.process">Process</a>
+      <a class="nav-link" style="padding:9px 0;font-size:15px;" href="#reviews" data-i18n="nav.reviews">Reviews</a>
+      <a class="nav-link" style="padding:9px 0;font-size:15px;" href="#pricing" data-i18n="nav.pricing">Pricing</a>
+      <a class="nav-link" style="padding:9px 0;font-size:15px;" href="#contact" data-i18n="nav.contact">Contact</a>
+      <div id="lang-switch-mobile" class="lang-row" style="display:flex;gap:6px;margin:10px 0;"></div>
+      <a href="#pricing" class="btn btn-primary" style="padding:11px 20px;font-size:14px;" data-i18n="ctaPrimary">Get a Free Quote</a>
+    </div>
+  </header>
+  <div class="show-mobile" id="mobile-backdrop" style="display:none;position:fixed;inset:0;top:60px;background:rgba(11,18,32,0.35);z-index:55;"></div>
+
+  <div id="top" class="top-spacer" style="height:76px;"></div>
+
+  <!-- Hero -->
+  <section class="section" style="padding-top:64px;">
+    <div class="container grid-2" style="align-items:center;">
+      <div style="display:flex;flex-direction:column;gap:22px;">
+        <span class="eyebrow" data-i18n="heroTag">Web Design &amp; Digital Growth — Built for the U.S. Market</span>
+        <h1 class="hero-title" style="font-size:48px;line-height:1.12;color:var(--ink);" data-i18n="heroTitle">Websites and Social Ads That Turn Visitors Into Customers</h1>
+        <p style="font-size:18px;line-height:1.6;color:var(--ink-soft);max-width:520px;" data-i18n="heroSubtitle">We design fast, modern websites and run targeted social media advertising for businesses across the United States.</p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:6px;">
+          <a href="#pricing" class="btn btn-primary" data-i18n="ctaPrimary">Get a Free Quote</a>
+          <a href="https://wa.me/1XXXXXXXXXX" target="_blank" class="btn btn-whatsapp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.44 1.32 4.94L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.06a8.1 8.1 0 0 1-4.14-1.13l-.3-.18-3.14.82.84-3.06-.19-.31a8.15 8.15 0 1 1 6.93 3.86zm4.47-6.1c-.24-.12-1.44-.71-1.67-.79-.22-.08-.38-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.53.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.81-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.69 2.58 4.1 3.62.57.25 1.02.4 1.37.51.58.18 1.1.16 1.51.1.46-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
+            <span data-i18n="ctaSecondary">Chat on WhatsApp</span>
+          </a>
+        </div>
+        <div id="hero-stats" style="display:flex;gap:28px;margin-top:18px;flex-wrap:wrap;"></div>
+      </div>
+
+      <div style="position:relative;">
+        <div style="border-radius:20px;border:1px solid var(--border);box-shadow:0 30px 60px rgba(11,18,32,0.12);overflow:hidden;background:#fff;">
+          <div style="display:flex;gap:6px;padding:14px 18px;background:var(--bg-alt);border-bottom:1px solid var(--border);">
+            <div style="width:10px;height:10px;border-radius:50%;background:#ff5f57;"></div>
+            <div style="width:10px;height:10px;border-radius:50%;background:#febc2e;"></div>
+            <div style="width:10px;height:10px;border-radius:50%;background:#28c840;"></div>
+          </div>
+          <div style="padding:28px;display:flex;flex-direction:column;gap:16px;">
+            <div style="height:140px;border-radius:14px;background:linear-gradient(135deg,var(--primary) 0%, #3a6ff0 100%);display:flex;align-items:center;justify-content:center;">
+              <span style="color:#fff;font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;" data-i18n="brand">[Your Studio Name]</span>
+            </div>
+            <div style="display:flex;gap:12px;">
+              <div style="flex:1;height:64px;border-radius:10px;background:var(--bg-alt);"></div>
+              <div style="flex:1;height:64px;border-radius:10px;background:var(--bg-alt);"></div>
+              <div style="flex:1;height:64px;border-radius:10px;background:var(--bg-alt);"></div>
+            </div>
+            <div style="height:14px;width:80%;border-radius:6px;background:var(--bg-alt);"></div>
+            <div style="height:14px;width:60%;border-radius:6px;background:var(--bg-alt);"></div>
+          </div>
+        </div>
+        <div class="card" style="position:absolute;left:-24px;bottom:-20px;padding:16px 20px;display:flex;align-items:center;gap:10px;box-shadow:0 20px 40px rgba(11,18,32,0.15);">
+          <div style="width:36px;height:36px;border-radius:50%;background:rgba(37,211,102,0.15);display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--whatsapp)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <div style="font-size:13px;font-weight:600;color:var(--ink);" data-i18n="heroBadgeTitle">Avg. reply time</div>
+            <div style="font-size:12px;color:var(--ink-soft);" data-i18n="heroBadgeSub">Under 15 minutes</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust strip -->
+  <section style="padding:28px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg-alt);">
+    <div class="container" id="trust-flags" style="display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;"></div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="section">
+    <div class="container">
+      <div style="text-align:center;max-width:680px;margin:0 auto 48px;">
+        <span class="eyebrow" data-i18n="servicesTag">What We Do</span>
+        <h2 class="section-title" style="font-size:34px;color:var(--ink);" data-i18n="servicesTitle">Everything You Need to Grow Online</h2>
+      </div>
+
+      <div class="grid-2">
+        <div class="card" style="display:flex;flex-direction:column;gap:16px;">
+          <div style="width:52px;height:52px;border-radius:14px;background:rgba(30,79,214,0.1);display:flex;align-items:center;justify-content:center;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3 style="font-size:22px;color:var(--ink);" data-i18n="service1Title">Website Design &amp; Development</h3>
+          <p style="font-size:15px;color:var(--ink-soft);line-height:1.6;" data-i18n="service1Desc">Custom, mobile-first websites built to convert.</p>
+          <ul id="service1-points" style="display:flex;flex-direction:column;gap:10px;"></ul>
+        </div>
+
+        <div class="card" style="display:flex;flex-direction:column;gap:16px;">
+          <div style="width:52px;height:52px;border-radius:14px;background:rgba(255,122,61,0.12);display:flex;align-items:center;justify-content:center;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="21.17" y1="8" x2="12" y2="8"/><line x1="3.95" y1="6.06" x2="8.54" y2="14"/><line x1="10.88" y1="21.94" x2="15.46" y2="14"/></svg>
+          </div>
+          <h3 style="font-size:22px;color:var(--ink);" data-i18n="service2Title">Social Media Advertising (Targeted Ads)</h3>
+          <p style="font-size:15px;color:var(--ink-soft);line-height:1.6;" data-i18n="service2Desc">We plan, launch, and optimize targeted ad campaigns.</p>
+          <ul id="service2-points" style="display:flex;flex-direction:column;gap:10px;"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process" class="section section-alt">
+    <div class="container">
+      <div style="text-align:center;max-width:680px;margin:0 auto 48px;">
+        <span class="eyebrow" data-i18n="processTag">How We Work</span>
+        <h2 class="section-title" style="font-size:34px;color:var(--ink);" data-i18n="processTitle">From First Call to Launch</h2>
+      </div>
+      <div class="grid-4" id="process-steps"></div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section id="reviews" class="section">
+    <div class="container">
+      <div style="text-align:center;max-width:680px;margin:0 auto 48px;">
+        <span class="eyebrow" data-i18n="reviewsTag">Client Reviews</span>
+        <h2 class="section-title" style="font-size:34px;color:var(--ink);" data-i18n="reviewsTitle">What Our Clients Say</h2>
+      </div>
+      <div class="grid-3" id="reviews-list"></div>
+      <p style="text-align:center;font-size:13px;color:var(--ink-soft);margin-top:24px;" data-i18n="reviewsNote">Replace these with your real Google reviews.</p>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="section section-alt">
+    <div class="container">
+      <div style="text-align:center;max-width:680px;margin:0 auto 20px;">
+        <span class="eyebrow" data-i18n="pricingTag">Pricing</span>
+        <h2 class="section-title" style="font-size:34px;color:var(--ink);" data-i18n="pricingTitle">Simple, Transparent Packages</h2>
+        <p style="font-size:15px;color:var(--ink-soft);margin-top:10px;" data-i18n="pricingNote">Update the prices below to match your services.</p>
+      </div>
+
+      <div class="grid-3" id="plans-list" style="margin-top:44px;align-items:stretch;"></div>
+
+      <!-- Online payment -->
+      <div class="card" style="margin-top:40px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;">
+        <div style="max-width:520px;">
+          <h3 style="font-size:19px;color:var(--ink);margin-bottom:8px;" data-i18n="payTitle">Pay Online, Securely</h3>
+          <p style="font-size:14px;color:var(--ink-soft);line-height:1.6;" data-i18n="payDesc">Connect your Stripe or PayPal account to activate checkout.</p>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <button class="btn btn-outline" style="min-width:170px;" onclick="alert('Connect your Stripe account to enable this button.')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            <span data-i18n="payCard">Pay with Card</span>
+          </button>
+          <button class="btn btn-outline" style="min-width:170px;" onclick="alert('Connect your PayPal account to enable this button.')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1M3 8h12v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+            <span data-i18n="payPaypal">Pay with PayPal</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Find us / Map -->
+  <section id="location" class="section">
+    <div class="container grid-2" style="align-items:center;">
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <span class="eyebrow" data-i18n="mapTag">Find Us</span>
+        <h2 class="section-title" style="font-size:32px;color:var(--ink);" data-i18n="mapTitle">Serving Clients Across the U.S.</h2>
+        <p style="font-size:15px;color:var(--ink-soft);line-height:1.6;" data-i18n="mapDesc">Connect your Google Business Profile to show a live map here.</p>
+        <div style="display:flex;gap:12px;align-items:flex-start;margin-top:8px;">
+          <svg width="20" height="20" style="flex-shrink:0;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span style="font-size:15px;color:var(--ink);font-weight:500;" data-i18n="mapAddress">[Your Business Address, City, State]</span>
+        </div>
+        <a href="#contact" class="btn btn-primary" style="align-self:flex-start;margin-top:8px;" data-i18n="mapCta">Get Directions</a>
+      </div>
+
+      <div style="border-radius:20px;overflow:hidden;border:1px solid var(--border);position:relative;height:340px;background:
+        repeating-linear-gradient(0deg, #eef1f8 0 1px, transparent 1px 40px),
+        repeating-linear-gradient(90deg, #eef1f8 0 1px, transparent 1px 40px),
+        #f7f9fc;">
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;">
+          <div class="map-pin">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="card" style="padding:10px 16px;font-size:13px;color:var(--ink-soft);" data-i18n="mapEmbedNote">Google Maps preview — connect your business address</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section section-alt">
+    <div class="container grid-2">
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <span class="eyebrow" data-i18n="contactTag">Contact</span>
+        <h2 class="section-title" style="font-size:32px;color:var(--ink);" data-i18n="contactTitle">Let's Build Something Great</h2>
+        <p style="font-size:15px;color:var(--ink-soft);line-height:1.6;max-width:440px;" data-i18n="contactDesc">Tell us about your project and we'll get back to you within one business day.</p>
+
+        <div style="display:flex;flex-direction:column;gap:14px;margin-top:10px;">
+          <div style="display:flex;gap:12px;align-items:center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span style="font-size:15px;color:var(--ink);" data-i18n="contactPhone">+1 (XXX) XXX-XXXX</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+            <span style="font-size:15px;color:var(--ink);" data-i18n="contactEmail">hello@yourstudio.com</span>
+          </div>
+          <a href="https://wa.me/1XXXXXXXXXX" target="_blank" class="btn btn-whatsapp" style="align-self:flex-start;margin-top:6px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.44 1.32 4.94L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.06a8.1 8.1 0 0 1-4.14-1.13l-.3-.18-3.14.82.84-3.06-.19-.31a8.15 8.15 0 1 1 6.93 3.86z"/></svg>
+            <span data-i18n="ctaSecondary">Chat on WhatsApp</span>
+          </a>
+        </div>
+      </div>
+
+      <form class="card" style="display:flex;flex-direction:column;gap:14px;" id="contact-form">
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <label for="cf-name" style="font-size:13px;font-weight:600;color:var(--ink);" data-i18n="formName">Name</label>
+          <input id="cf-name" type="text" style="padding:12px 14px;border-radius:10px;border:1px solid var(--border);font-size:14px;">
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <label for="cf-email" style="font-size:13px;font-weight:600;color:var(--ink);" data-i18n="formEmail">Email</label>
+          <input id="cf-email" type="email" style="padding:12px 14px;border-radius:10px;border:1px solid var(--border);font-size:14px;">
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <label for="cf-msg" style="font-size:13px;font-weight:600;color:var(--ink);" data-i18n="formMessage">Tell us about your project</label>
+          <textarea id="cf-msg" rows="4" style="padding:12px 14px;border-radius:10px;border:1px solid var(--border);font-size:14px;resize:vertical;"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;" data-i18n="formSubmit">Send Message</button>
+        <div id="form-success" style="display:none;font-size:13px;color:var(--whatsapp-dark);font-weight:600;" data-i18n="formSuccess">Thanks! We'll be in touch shortly.</div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background:var(--ink);padding:48px 0 28px;">
+    <div class="container" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:32px;">
+      <div style="max-width:280px;display:flex;flex-direction:column;gap:10px;">
+        <span style="font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:700;color:#fff;" data-i18n="brand">[Your Studio Name]</span>
+        <p style="font-size:13px;color:#9aa5c0;line-height:1.6;" data-i18n="footerTagline">Websites and social media advertising for businesses across the U.S., Latin America, and the CIS.</p>
+        <div id="lang-switch-footer" class="lang-row" style="display:flex;gap:6px;margin-top:6px;"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <span style="font-size:13px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.06em;" data-i18n="footerNavTitle">Navigate</span>
+        <a class="footer-link" href="#services" data-i18n="nav.services">Services</a>
+        <a class="footer-link" href="#process" data-i18n="nav.process">Process</a>
+        <a class="footer-link" href="#reviews" data-i18n="nav.reviews">Reviews</a>
+        <a class="footer-link" href="#pricing" data-i18n="nav.pricing">Pricing</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <span style="font-size:13px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.06em;" data-i18n="contactTag">Contact</span>
+        <span class="footer-link" data-i18n="contactPhone">+1 (XXX) XXX-XXXX</span>
+        <span class="footer-link" data-i18n="contactEmail">hello@yourstudio.com</span>
+        <span class="footer-link" data-i18n="mapAddress">[Your Business Address, City, State]</span>
+      </div>
+    </div>
+    <div class="container" style="margin-top:36px;padding-top:20px;border-top:1px solid #253150;">
+      <span style="font-size:12px;color:#7c88a8;" data-i18n="footerRights">© 2026 [Your Studio Name]. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <!-- Sticky WhatsApp floating button -->
+  <a href="https://wa.me/1XXXXXXXXXX" target="_blank" aria-label="WhatsApp" style="position:fixed;right:22px;bottom:22px;z-index:70;display:flex;align-items:center;gap:10px;background:var(--whatsapp);color:#fff;padding:16px 22px;border-radius:999px;box-shadow:0 14px 30px rgba(37,211,102,0.45);font-weight:700;font-size:15px;">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.44 1.32 4.94L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.06a8.1 8.1 0 0 1-4.14-1.13l-.3-.18-3.14.82.84-3.06-.19-.31a8.15 8.15 0 1 1 6.93 3.86zm4.47-6.1c-.24-.12-1.44-.71-1.67-.79-.22-.08-.38-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.53.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.81-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.69 2.58 4.1 3.62.57.25 1.02.4 1.37.51.58.18 1.1.16 1.51.1.46-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
+    <span class="hide-mobile" data-i18n="whatsappFab">WhatsApp Us</span>
+  </a>
+
+</div>
+
+<script>
+const DATA = {
+  en: {
+    brand: "[Your Studio Name]",
+    nav: { services: "Services", process: "Process", reviews: "Reviews", pricing: "Pricing", contact: "Contact" },
+    heroTag: "Web Design & Digital Growth — Built for the U.S. Market",
+    heroTitle: "Websites and Social Ads That Turn Visitors Into Customers",
+    heroSubtitle: "We design fast, modern websites and run targeted social media advertising for businesses across the United States — trusted by clients from the U.S., Latin America, and the CIS.",
+    ctaPrimary: "Get a Free Quote",
+    ctaSecondary: "Chat on WhatsApp",
+    heroBadgeTitle: "Avg. reply time",
+    heroBadgeSub: "Under 15 minutes",
+    heroStats: [
+      { value: "120+", label: "Websites launched" },
+      { value: "3", label: "Languages supported" },
+      { value: "4.9/5", label: "Average client rating" }
+    ],
+    trustFlags: ["United States", "Latin America", "CIS Region", "Remote-first team", "English · Español · Русский"],
+    servicesTag: "What We Do",
+    servicesTitle: "Everything You Need to Grow Online",
+    service1Title: "Website Design & Development",
+    service1Desc: "Custom, mobile-first websites built to convert — from landing pages to full online stores.",
+    service1Points: ["Custom design, no generic templates","Fast loading, SEO-ready structure","Fully responsive on phone, tablet, desktop","Online payments & booking integration"],
+    service2Title: "Social Media Advertising (Targeted Ads)",
+    service2Desc: "We plan, launch, and optimize targeted ad campaigns on Instagram, Facebook, and TikTok to bring you qualified leads.",
+    service2Points: ["Audience research & targeting strategy","Ad creative, copywriting, and A/B testing","Campaign setup on Meta & TikTok Ads","Weekly performance reporting"],
+    processTag: "How We Work",
+    processTitle: "From First Call to Launch",
+    processSteps: [
+      { n: "01", title: "Discovery", desc: "We learn about your business, goals, and audience." },
+      { n: "02", title: "Design", desc: "You review a custom design concept before we build anything." },
+      { n: "03", title: "Build & Launch", desc: "We develop, test, and launch your site and ad campaigns." },
+      { n: "04", title: "Grow", desc: "Ongoing optimization, reporting, and support." }
+    ],
+    reviewsTag: "Client Reviews",
+    reviewsTitle: "What Our Clients Say",
+    reviews: [
+      { initial: "N", name: "[Client Name]", location: "[City, State]", quote: "Add a real client testimonial here." },
+      { initial: "N", name: "[Client Name]", location: "[City, State]", quote: "Add a real client testimonial here." },
+      { initial: "N", name: "[Client Name]", location: "[City, State]", quote: "Add a real client testimonial here." }
+    ],
+    reviewsNote: "Replace these with your real Google reviews once your business profile is connected.",
+    pricingTag: "Pricing",
+    pricingTitle: "Simple, Transparent Packages",
+    pricingNote: "Update the prices below to match your services.",
+    mostPopular: "Most Popular",
+    plans: [
+      { name: "Starter", price: "$[XXX]", period: "one-time", featured: false, cta: "Choose Starter", features: ["1–3 page website","Mobile-friendly design","Contact form","1 round of revisions"] },
+      { name: "Business", price: "$[XXX]", period: "one-time", featured: true, cta: "Choose Business", features: ["Up to 8 pages","SEO setup","Online payments","3 rounds of revisions","1 month of ad support"] },
+      { name: "Custom", price: "Let's talk", period: "", featured: false, cta: "Contact Us", features: ["E-commerce / booking","Ongoing ad management","Multilingual content","Priority support"] }
+    ],
+    payTitle: "Pay Online, Securely",
+    payDesc: "Clients can pay deposits and invoices online by card or PayPal — connect your Stripe or PayPal account to activate checkout.",
+    payCard: "Pay with Card",
+    payPaypal: "Pay with PayPal",
+    mapTag: "Find Us",
+    mapTitle: "Serving Clients Across the U.S.",
+    mapDesc: "We work with clients nationwide and meet locally by appointment. Connect your Google Business Profile to show a live map here.",
+    mapAddress: "[Your Business Address, City, State]",
+    mapCta: "Get Directions",
+    mapEmbedNote: "Google Maps preview — connect your business address",
+    contactTag: "Contact",
+    contactTitle: "Let's Build Something Great",
+    contactDesc: "Tell us about your project and we'll get back to you within one business day.",
+    contactPhone: "+1 (XXX) XXX-XXXX",
+    contactEmail: "hello@yourstudio.com",
+    formName: "Name",
+    formEmail: "Email",
+    formMessage: "Tell us about your project",
+    formSubmit: "Send Message",
+    formSuccess: "Thanks! We'll be in touch shortly.",
+    footerTagline: "Websites and social media advertising for businesses across the U.S., Latin America, and the CIS.",
+    footerNavTitle: "Navigate",
+    footerRights: "© 2026 [Your Studio Name]. All rights reserved.",
+    whatsappFab: "WhatsApp Us"
+  },
+  es: {
+    brand: "[Tu Estudio Web]",
+    nav: { services: "Servicios", process: "Proceso", reviews: "Reseñas", pricing: "Precios", contact: "Contacto" },
+    heroTag: "Diseño Web y Crecimiento Digital — Para el Mercado de EE. UU.",
+    heroTitle: "Sitios Web y Anuncios en Redes Sociales que Convierten Visitantes en Clientes",
+    heroSubtitle: "Diseñamos sitios web rápidos y modernos, y gestionamos publicidad segmentada en redes sociales para negocios en todo Estados Unidos — con clientes de EE. UU., Latinoamérica y la CEI.",
+    ctaPrimary: "Solicitar Cotización Gratis",
+    ctaSecondary: "Escríbenos por WhatsApp",
+    heroBadgeTitle: "Tiempo de respuesta",
+    heroBadgeSub: "Menos de 15 minutos",
+    heroStats: [
+      { value: "120+", label: "Sitios web lanzados" },
+      { value: "3", label: "Idiomas disponibles" },
+      { value: "4.9/5", label: "Calificación promedio" }
+    ],
+    trustFlags: ["Estados Unidos", "Latinoamérica", "Región CEI", "Equipo remoto", "English · Español · Русский"],
+    servicesTag: "Qué Hacemos",
+    servicesTitle: "Todo lo que Necesitas para Crecer en Línea",
+    service1Title: "Diseño y Desarrollo Web",
+    service1Desc: "Sitios web personalizados y adaptados a móviles, diseñados para convertir — desde landing pages hasta tiendas en línea.",
+    service1Points: ["Diseño personalizado, sin plantillas genéricas","Carga rápida, estructura optimizada para SEO","100% adaptable a celular, tablet y escritorio","Pagos en línea y reservas integradas"],
+    service2Title: "Publicidad en Redes Sociales (Anuncios Segmentados)",
+    service2Desc: "Planificamos, lanzamos y optimizamos campañas de anuncios en Instagram, Facebook y TikTok para atraer clientes potenciales calificados.",
+    service2Points: ["Investigación de audiencia y estrategia de segmentación","Creatividades, textos publicitarios y pruebas A/B","Configuración de campañas en Meta y TikTok Ads","Reportes de desempeño semanales"],
+    processTag: "Cómo Trabajamos",
+    processTitle: "Desde la Primera Llamada hasta el Lanzamiento",
+    processSteps: [
+      { n: "01", title: "Descubrimiento", desc: "Conocemos tu negocio, objetivos y audiencia." },
+      { n: "02", title: "Diseño", desc: "Revisas un concepto de diseño personalizado antes de construir nada." },
+      { n: "03", title: "Desarrollo y Lanzamiento", desc: "Desarrollamos, probamos y lanzamos tu sitio y campañas publicitarias." },
+      { n: "04", title: "Crecimiento", desc: "Optimización continua, reportes y soporte." }
+    ],
+    reviewsTag: "Opiniones de Clientes",
+    reviewsTitle: "Lo Que Dicen Nuestros Clientes",
+    reviews: [
+      { initial: "N", name: "[Nombre del Cliente]", location: "[Ciudad, Estado]", quote: "Agrega aquí un testimonio real de tu cliente." },
+      { initial: "N", name: "[Nombre del Cliente]", location: "[Ciudad, Estado]", quote: "Agrega aquí un testimonio real de tu cliente." },
+      { initial: "N", name: "[Nombre del Cliente]", location: "[Ciudad, Estado]", quote: "Agrega aquí un testimonio real de tu cliente." }
+    ],
+    reviewsNote: "Reemplaza esto con tus reseñas reales de Google una vez conectado tu perfil de negocio.",
+    pricingTag: "Precios",
+    pricingTitle: "Paquetes Simples y Transparentes",
+    pricingNote: "Actualiza los precios según tus servicios.",
+    mostPopular: "Más Popular",
+    plans: [
+      { name: "Inicial", price: "$[XXX]", period: "pago único", featured: false, cta: "Elegir Inicial", features: ["Sitio de 1 a 3 páginas","Diseño adaptable a móvil","Formulario de contacto","1 ronda de revisiones"] },
+      { name: "Negocio", price: "$[XXX]", period: "pago único", featured: true, cta: "Elegir Negocio", features: ["Hasta 8 páginas","Configuración SEO","Pagos en línea","3 rondas de revisiones","1 mes de soporte publicitario"] },
+      { name: "Personalizado", price: "Cotización", period: "", featured: false, cta: "Contáctanos", features: ["Tienda en línea / reservas","Gestión continua de anuncios","Contenido multilingüe","Soporte prioritario"] }
+    ],
+    payTitle: "Paga en Línea de Forma Segura",
+    payDesc: "Tus clientes pueden pagar anticipos y facturas en línea con tarjeta o PayPal — conecta tu cuenta de Stripe o PayPal para activarlo.",
+    payCard: "Pagar con Tarjeta",
+    payPaypal: "Pagar con PayPal",
+    mapTag: "Encuéntranos",
+    mapTitle: "Atendemos Clientes en Todo EE. UU.",
+    mapDesc: "Trabajamos con clientes a nivel nacional y nos reunimos localmente con cita previa. Conecta tu perfil de Google Business para mostrar un mapa en vivo aquí.",
+    mapAddress: "[Dirección de tu Negocio, Ciudad, Estado]",
+    mapCta: "Cómo Llegar",
+    mapEmbedNote: "Vista previa de Google Maps — conecta la dirección de tu negocio",
+    contactTag: "Contacto",
+    contactTitle: "Construyamos Algo Grandioso",
+    contactDesc: "Cuéntanos sobre tu proyecto y te responderemos dentro de un día hábil.",
+    contactPhone: "+1 (XXX) XXX-XXXX",
+    contactEmail: "hello@yourstudio.com",
+    formName: "Nombre",
+    formEmail: "Correo Electrónico",
+    formMessage: "Cuéntanos sobre tu proyecto",
+    formSubmit: "Enviar Mensaje",
+    formSuccess: "¡Gracias! Te contactaremos pronto.",
+    footerTagline: "Sitios web y publicidad en redes sociales para negocios en EE. UU., Latinoamérica y la CEI.",
+    footerNavTitle: "Navegar",
+    footerRights: "© 2026 [Tu Estudio Web]. Todos los derechos reservados.",
+    whatsappFab: "Escríbenos"
+  },
+  ru: {
+    brand: "[Название вашей студии]",
+    nav: { services: "Услуги", process: "Процесс", reviews: "Отзывы", pricing: "Цены", contact: "Контакты" },
+    heroTag: "Веб-дизайн и продвижение — для рынка США",
+    heroTitle: "Сайты и реклама в соцсетях, которые превращают посетителей в клиентов",
+    heroSubtitle: "Мы создаём быстрые современные сайты и запускаем таргетированную рекламу в соцсетях для бизнеса по всей территории США — нам доверяют клиенты из США, Латинской Америки и стран СНГ.",
+    ctaPrimary: "Бесплатная консультация",
+    ctaSecondary: "Написать в WhatsApp",
+    heroBadgeTitle: "Среднее время ответа",
+    heroBadgeSub: "Менее 15 минут",
+    heroStats: [
+      { value: "120+", label: "Запущенных сайтов" },
+      { value: "3", label: "Языка интерфейса" },
+      { value: "4.9/5", label: "Средняя оценка клиентов" }
+    ],
+    trustFlags: ["США", "Латинская Америка", "Страны СНГ", "Удалённая команда", "English · Español · Русский"],
+    servicesTag: "Наши услуги",
+    servicesTitle: "Всё, что нужно для роста онлайн",
+    service1Title: "Разработка и дизайн сайтов",
+    service1Desc: "Индивидуальные сайты, адаптированные под мобильные устройства и созданные для конверсии — от лендингов до интернет-магазинов.",
+    service1Points: ["Индивидуальный дизайн, без шаблонов","Быстрая загрузка, SEO-оптимизация","Полная адаптация под телефон, планшет, компьютер","Онлайн-оплата и запись на услуги"],
+    service2Title: "Продвижение в соцсетях (таргетированная реклама)",
+    service2Desc: "Планируем, запускаем и оптимизируем таргетированную рекламу в Instagram, Facebook и TikTok, чтобы привлекать целевых клиентов.",
+    service2Points: ["Анализ аудитории и стратегия таргетинга","Рекламные креативы, тексты и A/B-тестирование","Настройка кампаний в Meta и TikTok Ads","Еженедельные отчёты по эффективности"],
+    processTag: "Как мы работаем",
+    processTitle: "От первого звонка до запуска",
+    processSteps: [
+      { n: "01", title: "Знакомство", desc: "Изучаем ваш бизнес, цели и аудиторию." },
+      { n: "02", title: "Дизайн", desc: "Вы утверждаете концепцию дизайна до начала разработки." },
+      { n: "03", title: "Разработка и запуск", desc: "Разрабатываем, тестируем и запускаем сайт и рекламные кампании." },
+      { n: "04", title: "Рост", desc: "Постоянная оптимизация, отчётность и поддержка." }
+    ],
+    reviewsTag: "Отзывы клиентов",
+    reviewsTitle: "Что говорят наши клиенты",
+    reviews: [
+      { initial: "N", name: "[Имя клиента]", location: "[Город, штат]", quote: "Добавьте реальный отзыв вашего клиента." },
+      { initial: "N", name: "[Имя клиента]", location: "[Город, штат]", quote: "Добавьте реальный отзыв вашего клиента." },
+      { initial: "N", name: "[Имя клиента]", location: "[Город, штат]", quote: "Добавьте реальный отзыв вашего клиента." }
+    ],
+    reviewsNote: "Замените на реальные отзывы из Google после подключения вашего бизнес-профиля.",
+    pricingTag: "Цены",
+    pricingTitle: "Простые и прозрачные тарифы",
+    pricingNote: "Обновите цены в соответствии с вашими услугами.",
+    mostPopular: "Популярный выбор",
+    plans: [
+      { name: "Старт", price: "$[XXX]", period: "разово", featured: false, cta: "Выбрать Старт", features: ["Сайт из 1–3 страниц","Адаптивный дизайн","Форма обратной связи","1 раунд правок"] },
+      { name: "Бизнес", price: "$[XXX]", period: "разово", featured: true, cta: "Выбрать Бизнес", features: ["До 8 страниц","SEO-настройка","Онлайн-оплата","3 раунда правок","1 месяц рекламной поддержки"] },
+      { name: "Индивидуально", price: "По запросу", period: "", featured: false, cta: "Связаться с нами", features: ["Интернет-магазин / бронирование","Постоянное ведение рекламы","Многоязычный контент","Приоритетная поддержка"] }
+    ],
+    payTitle: "Безопасная онлайн-оплата",
+    payDesc: "Клиенты смогут оплачивать депозиты и счета онлайн картой или через PayPal — подключите Stripe или PayPal, чтобы активировать оплату.",
+    payCard: "Оплатить картой",
+    payPaypal: "Оплатить через PayPal",
+    mapTag: "Как нас найти",
+    mapTitle: "Работаем с клиентами по всей территории США",
+    mapDesc: "Мы работаем с клиентами по всей стране и встречаемся лично по предварительной записи. Подключите Google Business Profile, чтобы показать здесь живую карту.",
+    mapAddress: "[Адрес вашего бизнеса, город, штат]",
+    mapCta: "Проложить маршрут",
+    mapEmbedNote: "Превью карты Google Maps — подключите адрес вашего бизнеса",
+    contactTag: "Контакты",
+    contactTitle: "Давайте создадим что-то отличное",
+    contactDesc: "Расскажите о своём проекте — мы ответим в течение одного рабочего дня.",
+    contactPhone: "+1 (XXX) XXX-XXXX",
+    contactEmail: "hello@yourstudio.com",
+    formName: "Имя",
+    formEmail: "Email",
+    formMessage: "Расскажите о своём проекте",
+    formSubmit: "Отправить сообщение",
+    formSuccess: "Спасибо! Мы скоро с вами свяжемся.",
+    footerTagline: "Сайты и продвижение в соцсетях для бизнеса в США, Латинской Америке и странах СНГ.",
+    footerNavTitle: "Навигация",
+    footerRights: "© 2026 [Название вашей студии]. Все права защищены.",
+    whatsappFab: "Написать в WhatsApp"
+  }
+};
+
+let currentLang = "en";
+
+function get(obj, path) {
+  return path.split(".").reduce((o, k) => (o == null ? o : o[k]), obj);
+}
+
+function svgCheck(color) {
+  return '<svg width="16" height="16" style="margin-top:3px;flex-shrink:0;" viewBox="0 0 24 24" fill="none" stroke="' + color + '" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+}
+
+function renderLangSwitch(containerId, footer) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = "";
+  ["en", "es", "ru"].forEach((code) => {
+    const btn = document.createElement("button");
+    btn.className = "lang-btn" + (footer ? " footer-lang" : "") + (code === currentLang ? " active" : "");
+    btn.textContent = code.toUpperCase();
+    btn.onclick = () => setLanguage(code);
+    el.appendChild(btn);
+  });
+}
+
+function setLanguage(lang) {
+  currentLang = lang;
+  const t = DATA[lang];
+  document.getElementById("html-root").setAttribute("lang", lang);
+
+  document.querySelectorAll("[data-i18n]").forEach((node) => {
+    const path = node.getAttribute("data-i18n");
+    const val = get(t, path);
+    if (val != null) node.innerHTML = val;
+  });
+
+  document.getElementById("hero-stats").innerHTML = t.heroStats.map((s) =>
+    '<div><div style="font-family:\'Space Grotesk\',sans-serif;font-size:26px;font-weight:700;color:var(--ink);">' + s.value +
+    '</div><div style="font-size:13px;color:var(--ink-soft);">' + s.label + '</div></div>'
+  ).join("");
+
+  document.getElementById("trust-flags").innerHTML = t.trustFlags.map((f) =>
+    '<div style="font-size:14px;font-weight:600;color:var(--ink-soft);letter-spacing:.02em;">' + f + '</div>'
+  ).join("");
+
+  document.getElementById("service1-points").innerHTML = t.service1Points.map((p) =>
+    '<li style="display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--ink-soft);">' + svgCheck("var(--primary)") + '<span>' + p + '</span></li>'
+  ).join("");
+
+  document.getElementById("service2-points").innerHTML = t.service2Points.map((p) =>
+    '<li style="display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--ink-soft);">' + svgCheck("var(--accent)") + '<span>' + p + '</span></li>'
+  ).join("");
+
+  document.getElementById("process-steps").innerHTML = t.processSteps.map((s) =>
+    '<div style="display:flex;flex-direction:column;gap:10px;"><div class="step-num">' + s.n + '</div><h4 style="font-size:17px;color:var(--ink);">' +
+    s.title + '</h4><p style="font-size:14px;color:var(--ink-soft);line-height:1.55;">' + s.desc + '</p></div>'
+  ).join("");
+
+  document.getElementById("reviews-list").innerHTML = t.reviews.map((r) =>
+    '<div class="card" style="display:flex;flex-direction:column;gap:14px;"><div class="star">★★★★★</div>' +
+    '<p style="font-size:15px;color:var(--ink-soft);line-height:1.6;font-style:italic;">"' + r.quote + '"</p>' +
+    '<div style="display:flex;align-items:center;gap:10px;margin-top:auto;"><div style="width:38px;height:38px;border-radius:50%;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;font-family:\'Space Grotesk\',sans-serif;font-weight:700;color:var(--primary);">' +
+    r.initial + '</div><div><div style="font-size:14px;font-weight:600;color:var(--ink);">' + r.name +
+    '</div><div style="font-size:12px;color:var(--ink-soft);">' + r.location + '</div></div></div></div>'
+  ).join("");
+
+  document.getElementById("plans-list").innerHTML = t.plans.map((plan) =>
+    '<div class="plan-card ' + (plan.featured ? "plan-featured" : "") + '">' +
+    (plan.featured ? '<span class="badge-featured">' + t.mostPopular + '</span>' : "") +
+    '<div><h3 style="font-size:19px;color:var(--ink);">' + plan.name + '</h3>' +
+    '<div style="display:flex;align-items:baseline;gap:6px;margin-top:8px;"><span style="font-family:\'Space Grotesk\',sans-serif;font-size:34px;font-weight:700;color:var(--ink);">' +
+    plan.price + '</span><span style="font-size:13px;color:var(--ink-soft);">' + plan.period + '</span></div></div>' +
+    '<ul style="display:flex;flex-direction:column;gap:10px;flex-grow:1;">' +
+    plan.features.map((f) => '<li style="display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--ink-soft);">' + svgCheck("var(--primary)") + '<span>' + f + '</span></li>').join("") +
+    '</ul><a href="#contact" class="btn ' + (plan.featured ? "btn-primary" : "btn-outline") + '">' + plan.cta + '</a></div>'
+  ).join("");
+
+  renderLangSwitch("lang-switch-desktop", false);
+  renderLangSwitch("lang-switch-mobile", false);
+  renderLangSwitch("lang-switch-footer", true);
+}
+
+function openMobileMenu() {
+  document.getElementById("mobile-menu").style.display = "flex";
+  document.getElementById("mobile-backdrop").style.display = "block";
+  document.getElementById("icon-burger").style.display = "none";
+  document.getElementById("icon-close").style.display = "block";
+  document.body.style.overflow = "hidden";
+}
+function closeMobileMenu() {
+  document.getElementById("mobile-menu").style.display = "none";
+  document.getElementById("mobile-backdrop").style.display = "none";
+  document.getElementById("icon-burger").style.display = "block";
+  document.getElementById("icon-close").style.display = "none";
+  document.body.style.overflow = "";
+}
+
+document.getElementById("mobile-toggle").addEventListener("click", () => {
+  const menu = document.getElementById("mobile-menu");
+  if (menu.style.display === "flex") closeMobileMenu(); else openMobileMenu();
+});
+
+document.getElementById("mobile-backdrop").addEventListener("click", closeMobileMenu);
+
+document.getElementById("mobile-menu").addEventListener("click", (e) => {
+  if (e.target.tagName === "A") closeMobileMenu();
+});
+
+document.getElementById("contact-form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  document.getElementById("form-success").style.display = "block";
+});
+
+setLanguage("en");
+</script>
+</body>
+</html>
